@@ -20,6 +20,10 @@
   .hero p{font-size:1.05rem;color:var(--muted);max-width:620px;margin:0 auto 6px}
   .ver{display:inline-block;margin-top:14px;font-size:.8rem;color:var(--muted);
        background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+  .feats{max-width:960px;margin:30px auto 0;padding:0 24px;list-style:none;display:grid;
+         grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .feats li{color:var(--muted);font-size:.9rem;line-height:1.55}
+  .feats b{display:block;color:var(--ink);font-size:.95rem;margin-bottom:3px}
   .dl{max-width:960px;margin:26px auto 0;padding:0 24px;display:grid;
       grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;
@@ -60,6 +64,12 @@
   <p>Review a day of surveillance footage in minutes. Your footage never leaves your computer — analysis runs locally.</p>
   <div class="ver" id="ver">Latest version</div>
 </div>
+
+<ul class="feats">
+  <li><b>Finds the moments that matter</b>Motion and object detection surface people and vehicles, and skip the empty hours.</li>
+  <li><b>Every event as a clip</b>Jump straight to a short clip for each event, confirm or dismiss, and add your notes.</li>
+  <li><b>Your footage stays put</b>Analysis runs on your own machine — nothing is uploaded.</li>
+</ul>
 
 <div class="dl">
   <div class="card" id="card-mac">
