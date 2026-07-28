@@ -42,8 +42,11 @@
   .steps{max-width:960px;margin:44px auto 0;padding:0 24px}
   .steps h3{color:var(--accent);font-size:1.05rem;margin:0 0 14px}
   ol{margin:0;padding-left:20px} li{margin-bottom:9px}
+  .must{color:#a3372b}
+  li .sub{display:block;color:var(--muted);font-size:.85rem;margin-top:2px}
   .note{background:#fbf6ec;border:1px solid #e6d4a8;border-radius:10px;padding:14px 16px;
         font-size:.9rem;margin:18px 0 0}
+  .note.warn{background:#fdecea;border-color:#f0c9c3}
   code{background:#eef2f7;border-radius:4px;padding:1px 6px;font-size:.88em;
        font-family:ui-monospace,Menlo,monospace}
   footer{max-width:960px;margin:52px auto 0;padding:22px 24px 46px;color:var(--muted);
@@ -101,11 +104,21 @@
 
   <div id="steps-win" style="display:none">
     <ol>
-      <li>Unzip the download and move the <b>SurveillanceReview</b> folder somewhere permanent (e.g. <code>C:\Program Files</code> or your Documents).</li>
-      <li>Run <b>SurveillanceReview.exe</b>. Windows may show a “Windows protected your PC” warning — click <b>More info → Run anyway</b>.</li>
+      <li>Download <b>SurveillanceReview-Windows.zip</b>.</li>
+      <li><b class="must">Before extracting:</b> right-click the zip → <b>Properties</b> → tick <b>Unblock</b> → <b>OK</b>.
+          <span class="sub">Required. Windows marks downloaded files as untrusted, and the app won't start without this.</span></li>
+      <li>Extract the zip and keep the whole <b>SurveillanceReview</b> folder together — the app needs the files alongside it. Move the folder somewhere permanent, like your Documents.</li>
+      <li>Run <b>SurveillanceReview.exe</b>. On the “Windows protected your PC” warning, click <b>More info → Run anyway</b>.</li>
       <li>Create your account — it stays on this computer.</li>
       <li>When prompted, paste the <b>license key</b> you were given to turn on AI analysis.</li>
     </ol>
+  </div>
+
+  <div class="note warn" id="note-unblock" style="display:none">
+    <b>Windows: don't skip the Unblock step.</b> Windows marks anything downloaded from the internet
+    as untrusted, and passes that mark to every file it extracts from a zip. The app can't start
+    until it's cleared. Already extracted? Open PowerShell in the folder and run
+    <code>Get-ChildItem -Recurse . | Unblock-File</code>.
   </div>
 
   <div class="note">
@@ -143,6 +156,7 @@
   document.getElementById(isMac ? 'tag-mac' : 'tag-win').style.display = '';
   document.getElementById('steps-mac').style.display = isMac ? '' : 'none';
   document.getElementById('steps-win').style.display = isMac ? 'none' : '';
+  document.getElementById('note-unblock').style.display = isMac ? 'none' : '';
   document.getElementById('steps-title').textContent = isMac ? 'Installing on macOS' : 'Installing on Windows';
 
   // Show the current version — the newest release tag, same source the app's update
