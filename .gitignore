@@ -1,0 +1,5 @@
+# Vercel CLI link state (machine-local)
+.vercel
+
+# OS cruft
+.DS_Store
